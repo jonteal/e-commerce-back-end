@@ -1,12 +1,30 @@
-# 13 Object-Relational Mapping (ORM): E-Commerce Back End
+# E-Commerce Back End
 
-## Your Task
+<a name="description"></a>
 
-Internet retail, also known as **e-commerce**, is the largest sector of the electronics industry, generating an estimated $29 trillion in 2019. E-commerce platforms like Shopify and WooCommerce provide a suite of services to businesses of all sizes. Due to their prevalence, understanding the fundamental architecture of these platforms will benefit you as a full-stack web developer.
+## Description
+The purpose of this program was to build a back end for an e-commerce website with Express, Mysql2, and Sequelize. Using the routes and models, a user can perform GET, POST, PUT, and DELETE requests using their chosen REST API client in order to maintain the product, category, and tag data for their commercial purposes.
 
-Your task is to build the back end for an e-commerce site by modifying starter code. You’ll configure a working Express.js API to use Sequelize to interact with a MySQL database.
 
-Because this application won’t be deployed, you’ll also need to provide a link to a walkthrough video that demonstrates its functionality and all of the acceptance criteria being met. You’ll need to submit a link to the video and add it to the readme of your project.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Table of Contents
+- [Description](#description)
+- [User Story](#userstory)
+- [Acceptance Criteria](#acceptancecriteria)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+- [Tests](#test)
+- [Questions](#questions)
+- [Video](#video)
+- [Screenshots](#screenshots)
+- [Links](#links)
+- [Resources / Credits](#credits)
+
+
+<a name="userstory"></a>
 
 ## User Story
 
@@ -15,6 +33,8 @@ AS A manager at an internet retail company
 I WANT a back end for my e-commerce website that uses the latest technologies
 SO THAT my company can compete with other e-commerce companies
 ```
+
+<a name="acceptancecriteria"></a>
 
 ## Acceptance Criteria
 
@@ -32,217 +52,121 @@ WHEN I test API POST, PUT, and DELETE routes in Insomnia Core
 THEN I am able to successfully create, update, and delete data in my database
 ```
 
-## Mock-Up
-
-The following animation shows the application's GET routes to return all categories, all products, and all tags being tested in Insomnia Core:
+<a name="installation"></a>
 
-![In Insomnia Core, the user tests “GET tags,” “GET Categories,” and “GET All Products.”.](./Assets/13-orm-homework-demo-01.gif)
+## Installation
+* Clone the repository using:
 
-The following animation shows the application's GET routes to return a single category, a single product, and a single tag being tested in Insomnia Core:
+```
+git clone https://github.com/jonteal/e-commerce-back-end
+```
+* Be sure that you are in the current working directory
+* Install the dependencies (express, dotenv, mysql2, and sequelize) by opening the terminal and running
+```
+npm install OR npm i
+```
+* In the terminal, log into the MySql by typing
+```
+mysql -u root -p
+```
+* Then type in your password for MySql. Once logged in, you will need to source the schema file in the db folder. In order to do that, type in the following in the terminal and hit enter afterwards. 
+```
+SOURCE db/schema.sql;
+```
+* Once the schema file is sourced, type 'exit' in the command line and get out of mysql.
+* The next step is to run the seed data in order to populate the database. To do that, run the following in the command line.
+```
+node seeds/index.js
+```
+* Next, run the project by typing the following command in the terminal:
+```
+npm start OR node server.js
+```
 
-![In Insomnia Core, the user tests “GET tag by id,” “GET Category by ID,” and “GET One Product.”](./Assets/13-orm-homework-demo-02.gif)
+<a name="usage"></a>
 
-The following animation shows the application's POST, PUT, and DELETE routes for categories being tested in Insomnia Core:
+## Usage
+* In order to use the backend once the above steps are completed, pull up your own chosen REST API client. Once that is done, you can initiate a GET, POST, PUT, or DELETE request by creating a request and setting it to which request type you wish to execute. 
 
-![In Insomnia Core, the user tests “DELETE Category by ID,” “CREATE Category,” and “UPDATE Category.”](./Assets/13-orm-homework-demo-03.gif)
+* To initiate a GET request for all Categories, Products, or Tags, set the request type to 'GET' and put the following in the url search bar:
+```
+http://localhost:3001/api/categories
+http://localhost:3001/api/products
+http://localhost:3001/api/tags
+```
+* If you would like to get any individual Category, Product, or Tag, simply add a '/' at the end of the path and a number to GET any individual item tied to that given 'id' number. 
 
-Your walkthrough video should also show the POST, PUT, and DELETE routes for products and tags being tested in Insomnia Core.
+* To initiate a POST request for Categories, Products, or Tags, set the request type to 'POST', put any of the previous url paths in the search bar and select the body data format to JSON. Then in the body, add an item that matches the format of the data for that type of item. You can refer to the GET requests for those formats. Once a new item is typed out in the body text area, send the request. The new item should be created, and you can verify by sending another GET request.
 
-## Getting Started
+* To initiate a PUT request for Categories, Products, or Tags, set the request type to 'PUT', and as before, enter in the updated version of any item in the body in JSON format. You can copy and paste an item from a GET request if you are selecting a specific item to update. Once the item is pasted in the body text area, update the information you wish to, and then be sure to add a '/' in the search bar and add that item's id number after the '/'. Once done, send the request and the update should be done. As before, send another GET request to verify the update executed as intended. 
 
-You’ll need to use the [MySQL2](https://www.npmjs.com/package/mysql2) and [Sequelize](https://www.npmjs.com/package/sequelize) packages to connect your Express.js API to a MySQL database and the [dotenv](https://www.npmjs.com/package/dotenv) package to use environment variables to store sensitive data.
+* To initiate a DELETE request for Categories, Products, or Tags, set the request type to 'DELETE'. In order to delete any item from any table, simply find that item via a GET request. Once you know which item to delete, enter it's table-specific url as shown in the GET request instruction above, and add a '/' to the end of the url and its id number after it. Once that is done, send the request. The item should be deleted, and you can verify this by sending another GET request to ensure it was deleted as intended. 
 
-Use the `schema.sql` file in the `db` folder to create your database with MySQL shell commands. Use environment variables to store sensitive data like your MySQL username, password, and database name.
 
-### Database Models
 
-Your database should contain the following four models, including the requirements listed for each model:
 
-* `Category`
+<a name="license"></a>
 
-  * `id`
+## License
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-    * Integer.
-  
-    * Doesn't allow null values.
-  
-    * Set as primary key.
-  
-    * Uses auto increment.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-  * `category_name`
-  
-    * String.
-  
-    * Doesn't allow null values.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-* `Product`
 
-  * `id`
-  
-    * Integer.
-  
-    * Doesn't allow null values.
-  
-    * Set as primary key.
-  
-    * Uses auto increment.
+<a name="contributing"></a>
 
-  * `product_name`
-  
-    * String.
-  
-    * Doesn't allow null values.
+## How to Contribute
+1. [Fork the repo!](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
+2. Create a feature branch:
+```
+git checkout -b yourname-branch
+```
+3. Commit changes:
+```
+git commit -m 'Your changes here'
+```
+4. Push to the branch:
+```
+git push origin yourname-branch
+```
+5. Submit a pull request and wait for it to be approved or denied.
 
-  * `price`
-  
-    * Decimal.
-  
-    * Doesn't allow null values.
-  
-    * Validates that the value is a decimal.
+<a name="tests"></a>
 
-  * `stock`
-  
-    * Integer.
-  
-    * Doesn't allow null values.
-  
-    * Set a default value of `10`.
-  
-    * Validates that the value is numeric.
+## Tests
+No tests available at this time.
 
-  * `category_id`
-  
-    * Integer.
-  
-    * References the `Category` model's `id`.
 
-* `Tag`
+<a name="questions"></a>
 
-  * `id`
-  
-    * Integer.
-  
-    * Doesn't allow null values.
-  
-    * Set as primary key.
-  
-    * Uses auto increment.
+## Questions
+If you have any questions or comments, please feel free to contact me by email at jonjacksonvibes@gmail.com!
 
-  * `tag_name`
-  
-    * String.
 
-* `ProductTag`
+<a name="video"></a>
 
-  * `id`
+## Video
+https://drive.google.com/file/d/1RqB2Ge5KWqqgljRrG9Kjwb2t07AVWX5j/view
 
-    * Integer.
+<a name="screenshots"></a>
 
-    * Doesn't allow null values.
+## Screenshots
 
-    * Set as primary key.
 
-    * Uses auto increment.
 
-  * `product_id`
+![Screenshot of GET-Categories](/e-commerce-back-end/Assets/GET-categories.png)
+![Screenshot of GET-Products](/e-commerce-back-end/Assets/GET-products.png)
+![Screenshot of GET-Tags](/e-commerce-back-end/Assets/GET-tags.png)
 
-    * Integer.
+<a name="links"></a>
 
-    * References the `Product` model's `id`.
+## Links
+Github Repository: https://github.com/jonteal/e-commerce-back-end
 
-  * `tag_id`
 
-    * Integer.
+<a name="credits"></a>
 
-    * References the `Tag` model's `id`.
-
-### Associations
-
-You'll need to execute association methods on your Sequelize models to create the following relationships between them:
-
-* `Product` belongs to `Category`, and `Category` has many `Product` models, as a category can have multiple products but a product can only belong to one category.
-
-* `Product` belongs to many `Tag` models, and `Tag` belongs to many `Product` models. Allow products to have multiple tags and tags to have many products by using the `ProductTag` through model.
-
-> **Hint:** Make sure you set up foreign key relationships that match the column we created in the respective models.
-
-### Fill Out the API Routes to Perform RESTful CRUD Operations
-
-Fill out the unfinished routes in `product-routes.js`, `tag-routes.js`, and `category-routes.js` to perform create, read, update, and delete operations using your Sequelize models.
-
-Note that the functionality for creating the many-to-many relationship for products has already been completed for you.
-
-> **Hint**: Be sure to look at the mini-project code for syntax help and use your model's column definitions to figure out what `req.body` will be for POST and PUT routes!
-
-### Seed the Database
-
-After creating the models and routes, run `npm run seed` to seed data to your database so that you can test your routes.
-
-### Sync Sequelize to the Database on Server Start
-
-Create the code needed in `server.js` to sync the Sequelize models to the MySQL database on server start.
-
-## Grading Requirements
-
-This homework is graded based on the following criteria: 
-
-### Deliverables: 10%
-
-* The GitHub repository containing your application code.
-
-### Walkthrough Video: 37%
-
-* A walkthrough video that demonstrates the functionality of the e-commerce back end must be submitted, and a link to the video should be included in your readme file.
-
-* The walkthrough video must show all of the technical acceptance criteria being met.
-
-* The walkthrough video must demonstrate how to create the schema from the MySQL shell.
-
-* The walkthrough video must demonstrate how to seed the database from the command line.
-
-* The walkthrough video must demonstrate how to start the application’s server.
-
-* The walkthrough video must demonstrate GET routes for all categories, all products, and all tags being tested in Insomnia Core.
-
-* The walkthrough video must demonstrate GET routes for a single category, a single product, and a single tag being tested in Insomnia Core.
-
-* The walkthrough video must demonstrate POST, PUT, and DELETE routes for categories, products, and tags being tested in Insomnia Core.
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria plus the following:
-
-  * Connects to a MySQL database using the [MySQL2](https://www.npmjs.com/package/mysql) and [Sequelize](https://www.npmjs.com/package/sequelize) packages.
-
-  * Stores sensitive data, like a user’s MySQL username, password, and database name, using environment variables through the [dotenv](https://www.npmjs.com/package/dotenv) package.
-
-  * Syncs Sequelize models to a MySQL database on the server start.
-
-  * Includes column definitions for all four models outlined in the homework instructions.
-
-  * Includes model associations outlined in the homework instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme with description and a link to a walkthrough video.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* A walkthrough video demonstrating the functionality of the application and all of the acceptance criteria being met.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a readme describing the project.
-
----
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+## Resources / Credits
+This project was authored by Jon Jackson.
