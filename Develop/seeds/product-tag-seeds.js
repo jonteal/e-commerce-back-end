@@ -1,5 +1,7 @@
+// Category variable that requires the ProductTag model 
 const { ProductTag } = require('../models');
 
+// Seed ProductTag data
 const productTagData = [
   {
     product_id: 1,
@@ -51,6 +53,8 @@ const productTagData = [
   },
 ];
 
+// Function that creates all ProductTag at once
 const seedProductTags = () => ProductTag.bulkCreate(productTagData);
 
+// Exporting the seeded ProductTag
 module.exports = seedProductTags;

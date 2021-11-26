@@ -1,5 +1,7 @@
+// Tag variable that requests the Tag model
 const { Tag } = require('../models');
 
+// Seed Tag data
 const tagData = [
   {
     tag_name: 'rock music',
@@ -27,6 +29,8 @@ const tagData = [
   },
 ];
 
+// Function that creates all Tags at once
 const seedTags = () => Tag.bulkCreate(tagData);
 
+// Exporting the seeded tags
 module.exports = seedTags;

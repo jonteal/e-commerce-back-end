@@ -1,5 +1,7 @@
+// Category variable that requires the Product model 
 const { Product } = require('../models');
 
+// Seed product data
 const productData = [
   {
     product_name: 'Plain T-Shirt',
@@ -33,6 +35,8 @@ const productData = [
   },
 ];
 
+// Function that creates all Products at once
 const seedProducts = () => Product.bulkCreate(productData);
 
+// Exporting the seeded Products
 module.exports = seedProducts;

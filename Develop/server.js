@@ -1,8 +1,13 @@
+// Imports the Express dependency
 const express = require('express');
-const routes = require('./routes');
-// import sequelize connection
 
+// Imports the sequelize connection
+const routes = require('./routes');
+
+// Variable to call the express function
 const app = express();
+
+// Establishes the port the application will use
 const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
