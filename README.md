@@ -155,10 +155,14 @@ https://drive.google.com/file/d/1RqB2Ge5KWqqgljRrG9Kjwb2t07AVWX5j/view
 ## Screenshots
 
 
+#### GET Categories
+![Screenshot of GET-Categories](./Assets/GET-categories.png)
 
-![Screenshot of GET-Categories](/e-commerce-back-end/Assets/GET-categories.png)
-![Screenshot of GET-Products](/e-commerce-back-end/Assets/GET-products.png)
-![Screenshot of GET-Tags](/e-commerce-back-end/Assets/GET-tags.png)
+#### GET Products
+![Screenshot of GET-Products](./Assets/GET-products.png)
+
+#### GET Tags
+![Screenshot of GET-Tags](./Assets/GET-tags.png)
 
 <a name="links"></a>
 

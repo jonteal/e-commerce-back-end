@@ -1,4 +1,4 @@
-// import models
+// Import models
 const Product = require('./Product');
 const Category = require('./Category');
 const Tag = require('./Tag');
@@ -27,6 +27,7 @@ Tag.belongsToMany(Product, {
     foreignKey: 'productTag_id',
 });
 
+// Exporting the Product, Category, Tag, and ProductTag models
 module.exports = {
   Product,
   Category,
